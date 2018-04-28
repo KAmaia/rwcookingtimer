@@ -1,0 +1,8 @@
+name: Cooking Timer
+main: cookingtimer.CookingTimer
+version: 1.0.0
+author: Migdyn
+team:
+description: "A cooking timer plugin"
+license: MIT
+website:

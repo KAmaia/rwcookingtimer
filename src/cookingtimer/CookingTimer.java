@@ -47,24 +47,37 @@ public class CookingTimer extends Plugin implements Listener{
         
         
         splitCommand = event.getCommand().split(" ");
-        time = Float.parseFloat(splitCommand[1]);
         
-        if(splitCommand.length==2){
-            if(splitCommand[0].equals("/ct")){
-            
-                Timer timer = new Timer(time, 1, 2, () -> this.getServer().broadcastTextMessage("The time's up!"));
+        
+        if(splitCommand.length==3){
+            if(splitCommand[0].equals("/ct") && splitCommand[1].equals("start")){
+                time = Float.parseFloat(splitCommand[2]);
+                
+                //Create a new timer and send a message to the player
+                Timer timer = new Timer(new Float(time), 1, 1, () -> event.getPlayer().sendTextMessage("The time's up!"));
                 timer.start();
-                getServer().broadcastTextMessage("The timer has benn set to " + splitCommand[1]);
+                getServer().broadcastTextMessage("[#OO00FF]The timer has benn set to " + splitCommand[2]);
             
             }else{
-                getServer().broadcastTextMessage("[#FF0000]WRONG PARAMETER");
+                getServer().broadcastTextMessage("[#FF0000]WRONG PARAMETER!");
         
             }
-            }else if(splitCommand.length<2){
-                event.getPlayer().sendTextMessage("TOO FEW PARAMETERS!");
-        
-        }else if(splitCommand.length>2){
-            event.getPlayer().sendTextMessage("TOO MUCH PARAMETERS!");
+            }else if(splitCommand.length<3){
+                
+                if(splitCommand.length==2){
+                    
+                    if(splitCommand[0].equals("/ct") && splitCommand[1].equals("help")){
+                    
+                    //Show the list of all commands to the player
+                    event.getPlayer().sendTextMessage("[#00FF00]Cooking Timer Commands: \n/ct start <TIME> - Sets the timer to the specified value and starts it. \n/ct help - Displays the list of all commands.");
+                    
+                    }
+                    
+                }else if(splitCommand.length<2){
+                event.getPlayer().sendTextMessage("[#FF0000]TOO FEW PARAMETERS!");
+                }
+        }else if(splitCommand.length>3){
+            event.getPlayer().sendTextMessage("[#FF0000]TOO MUCH PARAMETERS!");
         
         }
     }

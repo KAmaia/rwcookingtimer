@@ -45,16 +45,26 @@ public class CookingTimer extends Plugin implements Listener{
         String[] splitCommand;
         float time;
         
-        
+        //Split the command
         splitCommand = event.getCommand().split(" ");
         
-        
-        if(splitCommand.length==3){
-            if(splitCommand[0].equals("/ct") && splitCommand[1].equals("start")){
-                time = Float.parseFloat(splitCommand[2]);
+        if(splitCommand[0].equals("/ct")){
+            if(splitCommand.length==3){
+                if(splitCommand[0].equals("/ct") && splitCommand[1].equals("start")){
+                    if(splitCommand[2].equals("bacon")) time = 180;
+                    else if(splitCommand[2].equals("steak")) time = 250;
+                    else if(splitCommand[2].equals("ribs")) time = 550;
+                    else if(splitCommand[2].equals("chicken")) time = 450;
+                    else time = Float.parseFloat(splitCommand[2]);
                 
-                //Create a new timer and send a message to the player
-                Timer timer = new Timer(new Float(time), 1, 1, () -> event.getPlayer().sendTextMessage("The time's up!"));
+                    //Create a new timer and send a message to the player
+                    Timer timer = new Timer(new Float(time), 0, 1, () -> {
+                    
+                    //Sends the player a message
+                    event.getPlayer().sendTextMessage("[#FF0000]The time's up!");
+                        
+                        
+                    });
                 timer.start();
                 getServer().broadcastTextMessage("[#0000FF]The timer has been set to " + splitCommand[2]);
             
@@ -69,7 +79,7 @@ public class CookingTimer extends Plugin implements Listener{
                     if(splitCommand[0].equals("/ct") && splitCommand[1].equals("help")){
                     
                     //Show the list of all commands to the player
-                    event.getPlayer().sendTextMessage("[#00FF00]Cooking Timer Commands: \n/ct start <TIME> - Sets the timer to the specified value and starts it. \n/ct help - Displays the list of all commands.");
+                    event.getPlayer().sendTextMessage("[#00FF00]Cooking Timer Commands: \n/ct start [bacon/steak/ribs/chicken/<TimeInSeconds>] - Sets the timer to the specified value and starts it. \n/ct help - Displays the list of all commands.");
                     
                     }
                     
@@ -81,5 +91,5 @@ public class CookingTimer extends Plugin implements Listener{
         
         }
     }
-    
+    }
 }

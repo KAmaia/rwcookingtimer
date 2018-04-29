@@ -66,10 +66,10 @@ public class CookingTimer extends Plugin implements Listener{
                         
                     });
                 timer.start();
-                getServer().broadcastTextMessage("[#0000FF]The timer has been set to " + splitCommand[2]);
+                event.getPlayer().sendTextMessage("[#0000FF]The timer has been set to " + splitCommand[2]);
             
             }else{
-                getServer().broadcastTextMessage("[#FF0000]WRONG PARAMETER!");
+                event.getPlayer().sendTextMessage("[#FF0000]WRONG PARAMETER!");
         
             }
             }else if(splitCommand.length<3){

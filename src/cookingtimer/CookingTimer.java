@@ -56,7 +56,7 @@ public class CookingTimer extends Plugin implements Listener{
                 //Create a new timer and send a message to the player
                 Timer timer = new Timer(new Float(time), 1, 1, () -> event.getPlayer().sendTextMessage("The time's up!"));
                 timer.start();
-                getServer().broadcastTextMessage("[#OO00FF]The timer has benn set to " + splitCommand[2]);
+                getServer().broadcastTextMessage("[#0000FF]The timer has been set to " + splitCommand[2]);
             
             }else{
                 getServer().broadcastTextMessage("[#FF0000]WRONG PARAMETER!");

@@ -1,5 +1,5 @@
 # rwcookingtimer
 ## Commands
-- /ctstart **TIME** - Starts the timer with the entered time (in minutes)
+- /ct start **[bacon/steak/ribs/chicken/TimeInSeconds]** - Sets the timer to the specified value and
 - /ct help - Shows the command list
 

@@ -56,6 +56,7 @@ public class CookingTimer extends Plugin implements Listener{
                     else if(splitCommand[2].equals("steak")) time = 250;
                     else if(splitCommand[2].equals("ribs")) time = 550;
                     else if(splitCommand[2].equals("chicken")) time = 450;
+                    
                     else time = Float.parseFloat(splitCommand[2]);
                 
                     //Create a new timer and send a message to the player
@@ -69,7 +70,7 @@ public class CookingTimer extends Plugin implements Listener{
                     });
                 timer.start();
                 event.getPlayer().sendTextMessage("[#0000FF]The timer has been set to " + splitCommand[2]);
-                SoundInformation si = new SoundInformation(this, "/sounds/timer-set.ogg");
+                SoundInformation si = new SoundInformation(this, "/sounds/timer_set.ogg");
                         event.getPlayer().playSound(si);
             }else{
                 event.getPlayer().sendTextMessage("[#FF0000]WRONG PARAMETER!");

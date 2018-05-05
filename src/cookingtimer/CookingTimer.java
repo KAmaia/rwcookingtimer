@@ -27,6 +27,7 @@ import net.risingworld.api.Timer;
 import net.risingworld.api.events.EventMethod;
 import net.risingworld.api.events.Listener;
 import net.risingworld.api.events.player.PlayerCommandEvent;
+import net.risingworld.api.utils.SoundInformation;
 
 public class CookingTimer extends Plugin implements Listener{
 
@@ -67,7 +68,8 @@ public class CookingTimer extends Plugin implements Listener{
                     });
                 timer.start();
                 event.getPlayer().sendTextMessage("[#0000FF]The timer has been set to " + splitCommand[2]);
-            
+                SoundInformation si = new SoundInformation(this, "/sounds/times_up.ogg");
+                event.getPlayer().playSound(si);
             }else{
                 event.getPlayer().sendTextMessage("[#FF0000]WRONG PARAMETER!");
         

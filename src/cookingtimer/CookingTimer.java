@@ -63,13 +63,14 @@ public class CookingTimer extends Plugin implements Listener{
                     
                     //Sends the player a message
                     event.getPlayer().sendTextMessage("[#FF0000]The time's up!");
-                        
+                        SoundInformation si = new SoundInformation(this, "/sounds/times_up.ogg");
+                        event.getPlayer().playSound(si);
                         
                     });
                 timer.start();
                 event.getPlayer().sendTextMessage("[#0000FF]The timer has been set to " + splitCommand[2]);
-                SoundInformation si = new SoundInformation(this, "/sounds/times_up.ogg");
-                event.getPlayer().playSound(si);
+                SoundInformation si = new SoundInformation(this, "/sounds/timer-set.ogg");
+                        event.getPlayer().playSound(si);
             }else{
                 event.getPlayer().sendTextMessage("[#FF0000]WRONG PARAMETER!");
         
